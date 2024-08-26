@@ -93,6 +93,16 @@ extension NetworkManager: NetworkManagerProtocol {
                     throw mappedError
                 }
             }
+            .mapError { [weak self] error in
+                guard let self else { return error }
+                let mappedError = errorMapper.map(
+                    error: error,
+                    response: nil,
+                    isNetworkReachable: self.isNetworkReachable
+                )
+                logger.logError(mappedError, for: urlRequest)
+                return error
+            }
             .eraseToAnyPublisher()
     }
 }
