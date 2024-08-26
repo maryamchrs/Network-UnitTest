@@ -27,6 +27,8 @@
 		B7206EED2C7B962400F135D9 /* MockRequestMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7206EEC2C7B962400F135D9 /* MockRequestMapper.swift */; };
 		B7206EEF2C7B964400F135D9 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7206EEE2C7B964400F135D9 /* NetworkManagerTests.swift */; };
 		B7206EF12C7B966300F135D9 /* MockErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7206EF02C7B966300F135D9 /* MockErrorMapper.swift */; };
+		B7D6C51B2C7CD8EE00D48CD3 /* APIHTTPRequestMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6C51A2C7CD8EE00D48CD3 /* APIHTTPRequestMapperTests.swift */; };
+		B7D6C51D2C7CD96100D48CD3 /* SpyNetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6C51C2C7CD96100D48CD3 /* SpyNetworkLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		B7206EEC2C7B962400F135D9 /* MockRequestMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRequestMapper.swift; sourceTree = "<group>"; };
 		B7206EEE2C7B964400F135D9 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		B7206EF02C7B966300F135D9 /* MockErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockErrorMapper.swift; sourceTree = "<group>"; };
+		B7D6C51A2C7CD8EE00D48CD3 /* APIHTTPRequestMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHTTPRequestMapperTests.swift; sourceTree = "<group>"; };
+		B7D6C51C2C7CD96100D48CD3 /* SpyNetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyNetworkLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,10 +143,12 @@
 		B7206EB22C7B942800F135D9 /* Network-UnitTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				B7D6C51A2C7CD8EE00D48CD3 /* APIHTTPRequestMapperTests.swift */,
 				B7206EF02C7B966300F135D9 /* MockErrorMapper.swift */,
 				B7206EEA2C7B960B00F135D9 /* MockHTTPClient.swift */,
 				B7206EEC2C7B962400F135D9 /* MockRequestMapper.swift */,
 				B7206EEE2C7B964400F135D9 /* NetworkManagerTests.swift */,
+				B7D6C51C2C7CD96100D48CD3 /* SpyNetworkLogger.swift */,
 			);
 			path = "Network-UnitTestTests";
 			sourceTree = "<group>";
@@ -358,7 +364,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7206EEF2C7B964400F135D9 /* NetworkManagerTests.swift in Sources */,
+				B7D6C51B2C7CD8EE00D48CD3 /* APIHTTPRequestMapperTests.swift in Sources */,
 				B7206EED2C7B962400F135D9 /* MockRequestMapper.swift in Sources */,
+				B7D6C51D2C7CD96100D48CD3 /* SpyNetworkLogger.swift in Sources */,
 				B7206EEB2C7B960B00F135D9 /* MockHTTPClient.swift in Sources */,
 				B7206EF12C7B966300F135D9 /* MockErrorMapper.swift in Sources */,
 			);

@@ -19,7 +19,7 @@ final class MockHTTPClient: HTTPClient {
     
     func publisher(_ request: URLRequest) -> AnyPublisher<(Data, HTTPURLResponse), Error> {
         if let error = publisherError {
-            return Fail(error: NetworkError.general)
+            return Fail(error: error)
                 .eraseToAnyPublisher()
         } else if let response = publisherDataResponse {
             return Just(response)
@@ -33,7 +33,7 @@ final class MockHTTPClient: HTTPClient {
     
     func perform(_ request: URLRequest) async throws -> (Data, HTTPURLResponse) {
         if let error = performError {
-            throw NetworkError.general
+            throw error
         } else if let response = performDataResponse {
             return response
         } else {
@@ -43,8 +43,7 @@ final class MockHTTPClient: HTTPClient {
     
     func perform(_ request: URLRequest) async throws {
         if let error = performError {
-            throw NetworkError.general
+            throw error
         }
     }
 }
-

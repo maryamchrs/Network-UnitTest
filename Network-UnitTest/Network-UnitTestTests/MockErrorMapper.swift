@@ -9,7 +9,7 @@ import Foundation
 import XCTest
 @testable import Network_UnitTest
 
-class MockErrorMapper: ErrorMapperProtocol {
+final class MockErrorMapper: ErrorMapperProtocol {
     var mappedError: Error?
     
     func map(error: Error, response: HTTPURLResponse?, isNetworkReachable: Bool) -> Error {
