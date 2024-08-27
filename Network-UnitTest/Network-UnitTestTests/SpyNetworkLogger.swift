@@ -15,6 +15,8 @@ final class SpyNetworkLogger: LoggerProtocol {
     var logErrorCalled: Bool = false
     var loggedError: Error?
     
+    var changeLogsVisibilityStatusCalled: Bool = false
+    
     func logRequest(_ request: URLRequest?) {
         logRequestCalled = true
     }
@@ -26,5 +28,9 @@ final class SpyNetworkLogger: LoggerProtocol {
     func logError(_ error: Error, for request: URLRequest?) {
         loggedError = error
         logErrorCalled = true
+    }
+    
+    func changeLogsVisibilityStatus(_ shouldBeShown: Bool) {
+        changeLogsVisibilityStatusCalled = true
     }
 }

@@ -14,7 +14,13 @@ protocol ErrorMapperProtocol: AnyObject {
     func map(error: Error, response: HTTPURLResponse?, isNetworkReachable: Bool) -> Error
 }
 
-class ErrorMapper: ErrorMapperProtocol {
+extension ErrorMapperProtocol {
+    func map(error: Error, response: HTTPURLResponse? = nil, isNetworkReachable: Bool) -> Error {
+        map(error: error, response: response, isNetworkReachable: isNetworkReachable)
+    }
+}
+
+final class ErrorMapper: ErrorMapperProtocol {
     
     func map(error: Error, response: HTTPURLResponse?, isNetworkReachable: Bool) -> Error {
         if !isNetworkReachable {

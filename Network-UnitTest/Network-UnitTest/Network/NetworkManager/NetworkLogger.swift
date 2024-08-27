@@ -11,26 +11,29 @@ protocol LoggerProtocol {
     func logRequest(_ request: URLRequest?)
     func logResponse(_ response: HTTPURLResponse?, data: Data?)
     func logError(_ error: Error, for request: URLRequest?)
+    
+    func changeLogsVisibilityStatus(_ shouldBeShown: Bool)
 }
 
 final class NetworkLogger: LoggerProtocol {
     
     private var needToShowLogs: Bool
+    var logClosure: ((String) -> Void)?
     
-    
-    init(needToShowLogs: Bool) {
+    init(needToShowLogs: Bool, logClosure: ((String) -> Void)? = nil) {
         self.needToShowLogs = needToShowLogs
+        self.logClosure = logClosure ?? { print($0) }
     }
 
     func logRequest(_ request: URLRequest?) {
         guard needToShowLogs else { return }
         guard let request else { return }
-        print("Request ---> \(request.httpMethod ?? "UNKNOWN") \(request.url?.absoluteString ?? "UNKNOWN URL")")
+        logClosure?("Request ---> \(request.httpMethod ?? "UNKNOWN") \(request.url?.absoluteString ?? "UNKNOWN URL")")
         if let headers = request.allHTTPHeaderFields {
-            print("Headers: \(headers)")
+            logClosure?("Headers: \(headers)")
         }
         if let body = request.httpBody, let bodyString = String(data: body, encoding: .utf8) {
-            print("Body: \(bodyString)")
+            logClosure?("Body: \(bodyString)")
         }
     }
 
@@ -38,10 +41,10 @@ final class NetworkLogger: LoggerProtocol {
     func logResponse(_ response: HTTPURLResponse?, data: Data?) {
         guard needToShowLogs else { return }
         if let response {
-            print("Response ---> \(response.statusCode) from \(response.url?.absoluteString ?? "UNKNOWN URL")")
+            logClosure?("Response ---> \(response.statusCode) from \(response.url?.absoluteString ?? "UNKNOWN URL")")
         }
         if let data = data, let bodyString = String(data: data, encoding: .utf8) {
-            print("Body: \(bodyString)")
+            logClosure?("Body: \(bodyString)")
         }
     }
 
@@ -49,9 +52,13 @@ final class NetworkLogger: LoggerProtocol {
     func logError(_ error: Error, for request: URLRequest?) {
         guard needToShowLogs else { return }
         guard let request else {
-            print("Error \(error.localizedDescription)")
+            logClosure?("Error \(error.localizedDescription)")
             return
         }
-        print("Error \(error.localizedDescription) for \(request.httpMethod ?? "UNKNOWN") \(request.url?.absoluteString ?? "UNKNOWN URL")")
+        logClosure?("Error \(error.localizedDescription) for \(request.httpMethod ?? "UNKNOWN") \(request.url?.absoluteString ?? "UNKNOWN URL")")
+    }
+    
+    func changeLogsVisibilityStatus(_ shouldBeShown: Bool) {
+        needToShowLogs = shouldBeShown
     }
 }

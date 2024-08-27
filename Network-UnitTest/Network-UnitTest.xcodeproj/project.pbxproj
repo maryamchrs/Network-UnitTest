@@ -27,6 +27,8 @@
 		B7206EED2C7B962400F135D9 /* MockRequestMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7206EEC2C7B962400F135D9 /* MockRequestMapper.swift */; };
 		B7206EEF2C7B964400F135D9 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7206EEE2C7B964400F135D9 /* NetworkManagerTests.swift */; };
 		B7206EF12C7B966300F135D9 /* MockErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7206EF02C7B966300F135D9 /* MockErrorMapper.swift */; };
+		B7AD35222C7E26F600A28DD3 /* ErrorMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AD35212C7E26F600A28DD3 /* ErrorMapperTests.swift */; };
+		B7AD35242C7E27B800A28DD3 /* NetworkLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AD35232C7E27B800A28DD3 /* NetworkLoggerTests.swift */; };
 		B7D6C51B2C7CD8EE00D48CD3 /* APIHTTPRequestMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6C51A2C7CD8EE00D48CD3 /* APIHTTPRequestMapperTests.swift */; };
 		B7D6C51D2C7CD96100D48CD3 /* SpyNetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6C51C2C7CD96100D48CD3 /* SpyNetworkLogger.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,8 @@
 		B7206EEC2C7B962400F135D9 /* MockRequestMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRequestMapper.swift; sourceTree = "<group>"; };
 		B7206EEE2C7B964400F135D9 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		B7206EF02C7B966300F135D9 /* MockErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockErrorMapper.swift; sourceTree = "<group>"; };
+		B7AD35212C7E26F600A28DD3 /* ErrorMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMapperTests.swift; sourceTree = "<group>"; };
+		B7AD35232C7E27B800A28DD3 /* NetworkLoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerTests.swift; sourceTree = "<group>"; };
 		B7D6C51A2C7CD8EE00D48CD3 /* APIHTTPRequestMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHTTPRequestMapperTests.swift; sourceTree = "<group>"; };
 		B7D6C51C2C7CD96100D48CD3 /* SpyNetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyNetworkLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,9 +148,11 @@
 			isa = PBXGroup;
 			children = (
 				B7D6C51A2C7CD8EE00D48CD3 /* APIHTTPRequestMapperTests.swift */,
+				B7AD35212C7E26F600A28DD3 /* ErrorMapperTests.swift */,
 				B7206EF02C7B966300F135D9 /* MockErrorMapper.swift */,
 				B7206EEA2C7B960B00F135D9 /* MockHTTPClient.swift */,
 				B7206EEC2C7B962400F135D9 /* MockRequestMapper.swift */,
+				B7AD35232C7E27B800A28DD3 /* NetworkLoggerTests.swift */,
 				B7206EEE2C7B964400F135D9 /* NetworkManagerTests.swift */,
 				B7D6C51C2C7CD96100D48CD3 /* SpyNetworkLogger.swift */,
 			);
@@ -363,7 +369,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7AD35242C7E27B800A28DD3 /* NetworkLoggerTests.swift in Sources */,
 				B7206EEF2C7B964400F135D9 /* NetworkManagerTests.swift in Sources */,
+				B7AD35222C7E26F600A28DD3 /* ErrorMapperTests.swift in Sources */,
 				B7D6C51B2C7CD8EE00D48CD3 /* APIHTTPRequestMapperTests.swift in Sources */,
 				B7206EED2C7B962400F135D9 /* MockRequestMapper.swift in Sources */,
 				B7D6C51D2C7CD96100D48CD3 /* SpyNetworkLogger.swift in Sources */,
@@ -527,8 +535,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,6 +543,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mCH.Network-UnitTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -555,8 +565,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,6 +573,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mCH.Network-UnitTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
